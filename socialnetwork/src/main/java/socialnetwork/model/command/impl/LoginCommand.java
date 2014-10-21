@@ -24,10 +24,10 @@ public class LoginCommand implements ICommand {
 		String password = request.getParameter(PASSWORD);		
 
 		if (DaoUtils.getDaoFactory().getMockDao().login(login, password)) {
-			request.setAttribute("user", login);
+			request.getSession().setAttribute("user", login);
 			page = Config.getInstance().getProperty(Config.MAIN);
 		} else {
-			request.setAttribute("error",
+			request.getSession().setAttribute("error",
 					Message.getInstance().getProperty(Message.LOGIN_ERROR));
 			page = Config.getInstance().getProperty(Config.ERROR);
 		}
