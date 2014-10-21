@@ -6,6 +6,7 @@ import socialnetwork.model.dao.GroupImageDao;
 import socialnetwork.model.dao.GroupPostDao;
 import socialnetwork.model.dao.GroupUserDao;
 import socialnetwork.model.dao.MessageDao;
+import socialnetwork.model.dao.MockDao;
 import socialnetwork.model.dao.PostDao;
 import socialnetwork.model.dao.PostTagDao;
 import socialnetwork.model.dao.RatingDao;
@@ -49,6 +50,8 @@ public abstract class DaoFactory {
 	public abstract GroupPostDao getGroupPostDao();
 	
 	public abstract GroupImageDao getGroupImageDao();
+	
+	public abstract MockDao getMockDao();
 
 	public JDBCDataSource getDatasource() {
 		return datasource;

@@ -11,9 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import socialnetwork.model.command.ICommand;
+import socialnetwork.utils.Config;
 
 
-public class CommandMissing implements ICommand {
+public class NoCommand implements ICommand {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse responce) throws ServletException, IOException {

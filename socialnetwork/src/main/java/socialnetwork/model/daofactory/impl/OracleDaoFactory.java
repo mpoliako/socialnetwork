@@ -6,6 +6,7 @@ import socialnetwork.model.dao.GroupImageDao;
 import socialnetwork.model.dao.GroupPostDao;
 import socialnetwork.model.dao.GroupUserDao;
 import socialnetwork.model.dao.MessageDao;
+import socialnetwork.model.dao.MockDao;
 import socialnetwork.model.dao.PostDao;
 import socialnetwork.model.dao.PostTagDao;
 import socialnetwork.model.dao.RatingDao;
@@ -19,6 +20,7 @@ import socialnetwork.model.dao.impl.GroupImageDaoImpl;
 import socialnetwork.model.dao.impl.GroupPostDaoImpl;
 import socialnetwork.model.dao.impl.GroupUserDaoImpl;
 import socialnetwork.model.dao.impl.MessageDaoImpl;
+import socialnetwork.model.dao.impl.MockDaoImpl;
 import socialnetwork.model.dao.impl.PostDaoImpl;
 import socialnetwork.model.dao.impl.PostTagDaoImpl;
 import socialnetwork.model.dao.impl.RatingDaoImpl;
@@ -98,6 +100,11 @@ public class OracleDaoFactory extends DaoFactory {
 	@Override
 	public GroupImageDao getGroupImageDao() {
 		return new GroupImageDaoImpl(datasource);
+	}
+
+	@Override
+	public MockDao getMockDao() {
+		return new MockDaoImpl();
 	}
 
 }
