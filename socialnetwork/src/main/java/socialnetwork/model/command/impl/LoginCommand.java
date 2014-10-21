@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import socialnetwork.model.command.ICommand;
+import socialnetwork.model.dao.bean.User;
 import socialnetwork.utils.Config;
 import socialnetwork.utils.DaoUtils;
 import socialnetwork.utils.Message;
@@ -21,10 +22,12 @@ public class LoginCommand implements ICommand {
 			HttpServletResponse responce) throws ServletException, IOException {
 		String page = null;
 		String login = request.getParameter(LOGIN);
-		String password = request.getParameter(PASSWORD);		
+		String password = request.getParameter(PASSWORD);	
+		
+		User user = DaoUtils.getDaoFactory().getMockDao().findUserByNameAndPassword(login, password);
 
-		if (DaoUtils.getDaoFactory().getMockDao().login(login, password)) {
-			request.getSession().setAttribute("user", login);
+		if (user != null) {
+			request.getSession().setAttribute("user", user);
 			page = Config.getInstance().getProperty(Config.MAIN);
 		} else {
 			request.getSession().setAttribute("error",

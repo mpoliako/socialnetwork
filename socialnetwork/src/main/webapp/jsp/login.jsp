@@ -13,7 +13,7 @@
     <body>
         <h3>Login</h3>
         <hr/>
-        <form name="loginForm" method="POST" action="Controller">
+        <form name="loginForm" method="POST" action="/socialnetwork/Controller">
             <input type="hidden" name="command" value ="login"/>
             Login:<br/>
             <input type="text" name="login" value =""> <br/>

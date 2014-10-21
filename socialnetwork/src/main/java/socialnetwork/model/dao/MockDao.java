@@ -1,7 +1,9 @@
 package socialnetwork.model.dao;
 
+import socialnetwork.model.dao.bean.User;
+
 public interface MockDao {
 
-	public boolean login(String user, String password);
+	public User findUserByNameAndPassword(String user, String password);
 	
 }
