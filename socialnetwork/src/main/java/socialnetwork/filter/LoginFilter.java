@@ -25,7 +25,7 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		
-		HttpServletRequest req = (HttpServletRequest) request;		
+		HttpServletRequest req = (HttpServletRequest) request;
 
 		if (req.getSession().getAttribute("user") == null && ! "login".equals(request.getParameter("command"))) {
 			RequestDispatcher rd = req.getRequestDispatcher("/jsp/login.jsp");
