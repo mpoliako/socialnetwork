@@ -7,7 +7,7 @@
     <display-name>Project</display-name>
     
     <welcome-file-list>
-    	<welcome-file>jsp/login.jsp</welcome-file>
+    	<welcome-file>jsp/login.jspx</welcome-file>
     </welcome-file-list>
     
 

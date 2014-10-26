@@ -52,6 +52,20 @@ public class User implements Serializable {
 		this.photoUrl = photoUrl;
 		this.role = role;
 	}
+	
+	
+
+	/**
+	 * @param displayName
+	 * @param email
+	 * @param passwordHash
+	 */
+	public User(String displayName, String email, String passwordHash) {
+		super();
+		this.displayName = displayName;
+		this.email = email;
+		this.passwordHash = passwordHash;
+	}
 
 	public Long getId() {
 		return this.id;

@@ -12,7 +12,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-@WebFilter(filterName  = "loginFilter", urlPatterns = {"/*"})
+//@WebFilter(filterName  = "loginFilter", urlPatterns = {"/asdsda"})
 public class LoginFilter implements Filter {
 
 	@Override
@@ -27,8 +27,8 @@ public class LoginFilter implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 
-		if (req.getSession().getAttribute("user") == null && ! "login".equals(request.getParameter("command"))) {
-			RequestDispatcher rd = req.getRequestDispatcher("/jsp/login.jsp");
+		if (req.getSession().getAttribute("user") == null && ! "login".equals(request.getParameter("command")) && ! req.getRequestURL().toString().contains("static") && ! req.getRequestURL().toString().contains("#")) {
+			RequestDispatcher rd = req.getRequestDispatcher("/jsp/login1.jspx");
             rd.forward(request, response);
 			return;
 		}

@@ -31,8 +31,8 @@ public class UserDaoImplTest {
 	@Test
 	public void testSelectUser() {
 		
-		User user =  new User("petro", "pet@gmail.com", "Petro", "male", "Hello all, I want ro make friends!", "Petrov", "asdf4f-+32sd", "/asdf/gse/df.gif", "user");
-		userDao.addUser(user);		
+		//User user =  new User("petro", "pet@gmail.com", "Petro", "male", "Hello all, I want ro make friends!", "Petrov", "asdf4f-+32sd", "/asdf/gse/df.gif", "user");
+		//userDao.addUser(user);		
 		
 		System.out.println(userDao.getAllUsers());
 		assertNotNull(userDao.getAllUsers());
@@ -40,7 +40,7 @@ public class UserDaoImplTest {
 		System.out.println(userDao.findUserById(1l));
 		assertNotNull(userDao.findUserById(1l));
 		
-		userDao.deleteUser(3l);
+		//userDao.deleteUser(3l);
 		
 	}
 

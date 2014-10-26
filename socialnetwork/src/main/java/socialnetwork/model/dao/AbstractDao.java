@@ -7,11 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import socialnetwork.model.datasource.JDBCDataSource;
 
 public abstract class AbstractDao {
 
 	protected final JDBCDataSource datasource;
+	private final static Logger LOG = Logger.getLogger(AbstractDao.class);
 
 	public AbstractDao(final JDBCDataSource datasource) {
 		super();
@@ -38,6 +41,10 @@ public abstract class AbstractDao {
 	}
 
 	protected void executeUpdate(final String sql, final Object... params) {
+
+		LOG.info("Prepate to execute update SQL: " + sql
+				+ " with input params: " + params);
+
 		try (Connection dbConnection = getConnection();
 				PreparedStatement statement = dbConnection
 						.prepareStatement(sql)) {
@@ -46,14 +53,17 @@ public abstract class AbstractDao {
 			}
 			statement.executeUpdate();
 
+			LOG.info("SQL execute update successfully executed");
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
 	}
 
 	protected <T> List<T> queryList(final String sql,
 			ResultSetMapper<T> mapper, final Object... params) {
+
+		LOG.info("Prepate to query SQL: " + sql + " with input params: "
+				+ params + ", ResultSetMapper: " + mapper);
 
 		List<T> objcts = new ArrayList<>();
 
@@ -71,11 +81,12 @@ public abstract class AbstractDao {
 				objcts.add(mapper.map(rs));
 			}
 
+			LOG.info("SQL query successfully executed");
+
 			return objcts;
 
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 			return objcts;
 
 		}
@@ -83,6 +94,13 @@ public abstract class AbstractDao {
 
 	protected <T> T querySingleResult(final String sql,
 			ResultSetMapper<T> mapper, final Object... params) {
-		return queryList(sql, mapper, params).get(0);
+		List<T> objcts = queryList(sql, mapper, params);
+
+		if (objcts.size() != 0) {
+			return objcts.get(0);
+		} else {
+			LOG.warn("No data was found for single result query");
+			return null;
+		}
 	}
 }
