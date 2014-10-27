@@ -16,6 +16,15 @@ public class Config {
     public static final String MAIN = "MAIN";
     public static final String ERROR = "ERROR";
     public static final String LOGIN = "LOGIN";
+    public static final String JDBC_URL = "jdbc.url";
+    public static final String JDBC_DRIVER = "jdbc.driver";
+    public static final String JDBC_USER = "jdbc.username";
+    public static final String JDBC_PASSWORD = "jdbc.password";
+    public static final String JDBC_ACQUIRE_INCREMENT = "jdbc.acquireIncrement";
+    public static final String JDBC_INITIAL_POOL_SIZE= "jdbc.initialPoolSize";
+    public static final String JDBC_MAX_POOL_SIZE = "jdbc.maxPoolSize";
+    public static final String JDBC_MIN_POOL_SIZE = "jdbc.minPoolSize";
+    public static final String JDBC_MAX_STATEMENTS = "jdbc.maxStatements";
 
     public static Config getInstance() {
         if (instance == null) {
