@@ -13,6 +13,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.Logger;
+
 import socialnetwork.utils.Config;
 
 
@@ -20,6 +22,7 @@ public class MailClient {
 	
 	private static MailClient mailclient;
 	private static final Properties props = System.getProperties(); 
+	private static final Logger LOG = Logger.getLogger(MailClient.class);
 	
 	private String mailUserName;
 	private String mailPassword;
@@ -97,6 +100,8 @@ public class MailClient {
     public void send(final String username, final String password, String recipientEmail, String ccEmail, String title, String message) throws AddressException, MessagingException {
         Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
         
+        LOG.debug("Prepare to send email with parameters: username = " + username + ", password=" +password+ ", recipientEmail=" +recipientEmail+ ", ccEmail=" +ccEmail+ ", title=" +title+ ", message=" + message);
+        
         Session session = Session.getInstance(props, null);
 
         // -- Create a new message --
@@ -119,6 +124,8 @@ public class MailClient {
         t.connect(Config.getInstance().getProperty(Config.SMTP_HOST), username, password);
         t.sendMessage(msg, msg.getAllRecipients());      
         t.close();
+        
+        LOG.debug("Message successfully sent");
     }
     
     public static MailClient getInstance() {

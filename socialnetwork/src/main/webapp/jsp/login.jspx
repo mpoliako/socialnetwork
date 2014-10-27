@@ -87,10 +87,12 @@
 					<h2>For recover password, please, enter Your email</h2>
 					<a class="modal_close" href="#"><jsp:text /></a>
 			</div>
-			<form action="">
+			<form action="/socialnetwork/Controller">
+			
+			<input type="hidden" name="command" value ="recoverpassword"/>
 			<div class="txt-fld">
-				    <label class="label" for="">Email address</label>
-				    <input id="" name="" type="text" />
+				    <label class="label" for="email">Email address</label>
+				    <input id="email" name="email" type="text" />
 				  </div>
 				 
 					<div class="btn-fld">

@@ -15,6 +15,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 	private static final String FIND_ALL_USERS = "SELECT ID, DISPLAY_NAME, EMAIL, FIRST_NAME, GENDER, INFORMATION, LAST_NAME, PASSWORD_HASH, PHOTO_URL, REGISTER_DATE, ROLE FROM USERS WHERE IS_DELETED = 'N'";
 	private static final String FIND_USER_BY_ID = "SELECT ID, DISPLAY_NAME, EMAIL, FIRST_NAME, GENDER, INFORMATION, LAST_NAME, PASSWORD_HASH, PHOTO_URL, REGISTER_DATE, ROLE FROM USERS WHERE ID = ? AND IS_DELETED = 'N'";
 	private static final String FIND_USER_BY_NAME_AND_PASSWORD = "SELECT ID, DISPLAY_NAME, EMAIL, FIRST_NAME, GENDER, INFORMATION, LAST_NAME, PASSWORD_HASH, PHOTO_URL, REGISTER_DATE, ROLE FROM USERS WHERE DISPLAY_NAME = ? AND PASSWORD_HASH = ? AND IS_DELETED = 'N'";
+	private static final String FIND_USER_BY_EMAIL = "SELECT ID, DISPLAY_NAME, EMAIL, FIRST_NAME, GENDER, INFORMATION, LAST_NAME, PASSWORD_HASH, PHOTO_URL, REGISTER_DATE, ROLE FROM USERS WHERE EMAIL = ? AND IS_DELETED = 'N'";
 	private static final String ADD_USER = "INSERT INTO USERS (DISPLAY_NAME, EMAIL, FIRST_NAME, GENDER, INFORMATION, LAST_NAME, PASSWORD_HASH, PHOTO_URL, REGISTER_DATE, ROLE) VALUES (?,?,?,?,?,?,?,?,?,?)";
 	private static final String UPDATE_USER = "UPDATE USERS SET DISPLAY_NAME = ?, EMAIL = ?, FIRST_NAME = ?, GENDER = ?, INFORMATION = ?, LAST_NAME = ?, PASSWORD_HASH = ?, PHOTO_URL = ?,  ROLE = ? WHERE ID = ?";
 	private static final String DELETE_USER = "UPDATE USERS SET IS_DELETED = 'Y' WHERE ID = ?";
@@ -32,10 +33,17 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 	public User findUserById(final Long id) {
 		return querySingleResult(FIND_USER_BY_ID, getResultSetMapper(), id);
 	}
-	
+
 	@Override
 	public User findUserByNameAndPassword(String login, String password) {
-		return querySingleResult(FIND_USER_BY_NAME_AND_PASSWORD, getResultSetMapper(), login, password);
+		return querySingleResult(FIND_USER_BY_NAME_AND_PASSWORD,
+				getResultSetMapper(), login, password);
+	}
+
+	@Override
+	public User findUserByEmail(String email) {
+		return querySingleResult(FIND_USER_BY_EMAIL,
+				getResultSetMapper(), email);
 	}
 
 	@Override
