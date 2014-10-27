@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import socialnetwork.model.command.ICommand;
 import socialnetwork.model.command.impl.LoginCommand;
 import socialnetwork.model.command.impl.NoCommand;
+import socialnetwork.model.command.impl.RecoverPasswordCommand;
 import socialnetwork.model.command.impl.RegisterCommand;
 
 /**
@@ -26,6 +27,7 @@ public class ControllerHelper {
     private ControllerHelper() {
         commands.put("login", new LoginCommand());
         commands.put("register", new RegisterCommand());
+        commands.put("recoverpassword", new RecoverPasswordCommand());
     }
 
     public ICommand getCommand(HttpServletRequest request) {

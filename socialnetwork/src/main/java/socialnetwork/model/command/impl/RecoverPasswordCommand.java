@@ -47,11 +47,10 @@ public class RecoverPasswordCommand implements ICommand {
 		
 		try {
 			MailClient.getInstance().send(user.getEmail(), Message.getInstance().getProperty(Message.RECOVER_PASSWORD_TITLE), message);
+			LOG.info("Mail successfully sent to email "+ user.getEmail() +". Return to login page");
 		} catch (MessagingException e) {
 			LOG.error(e.getMessage(), e);
-		}
-		
-		LOG.info("Mail successfully sent to email "+ user.getEmail() +". Return to login page");
+		}		
 		
 		return Config.getInstance().getProperty(Config.LOGIN);
 
