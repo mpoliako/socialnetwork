@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 import socialnetwork.model.dao.UserDao;
-import socialnetwork.model.dao.bean.User;
 import socialnetwork.model.daofactory.DaoFactory;
 import socialnetwork.model.daofactory.impl.OracleDaoFactory;
 import socialnetwork.model.datasource.JDBCDataSource;
