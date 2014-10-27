@@ -3,6 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Mini Social</title>
+<link rel="shortcut icon" href="static/images/icon.ico" type="image/x-icon"/>
+<link rel="icon" href="static/images/icon.ico" type="image/x-icon"/>
 <meta name="keywords" content="mini social, free download, website templates, CSS, HTML" />
 <meta name="description" content="Mini Social is a free website template from templatemo.com" />
 <link href="static/css/templatemo_style.css" rel="stylesheet" type="text/css" />
@@ -23,7 +25,7 @@
 	
     <div id="templatemo_sidebar">
     	<div id="templatemo_header">
-        	<a href="http://www.templatemo.com" target="_parent"><img src="${pageContext.request.contextPath}/static/images/templatemo_logo.png" alt="Mini Social" /></a>
+        	<a href="/socialnetwork/Controller" target="_parent"><img src="${pageContext.request.contextPath}/static/images/templatemo_logo.png" alt="Mini Social" /></a>
         </div> <!-- end of header -->
         
         <ul class="navigation">

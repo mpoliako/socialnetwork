@@ -9,9 +9,10 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-//@WebFilter(filterName  = "loginFilter", urlPatterns = {"/asdsda"})
+@WebFilter(filterName  = "loginFilter", urlPatterns = {"/*"})
 public class LoginFilter implements Filter {
 
 	@Override
@@ -26,8 +27,8 @@ public class LoginFilter implements Filter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 
-		if (req.getSession().getAttribute("user") == null && ! "login".equals(request.getParameter("command")) && ! req.getRequestURL().toString().contains("static") && ! req.getRequestURL().toString().contains("#")) {
-			RequestDispatcher rd = req.getRequestDispatcher("/jsp/login1.jspx");
+		if (req.getSession().getAttribute("user") == null && ! "login".equals(request.getParameter("command")) && ! req.getRequestURL().toString().contains("static")) {
+			RequestDispatcher rd = req.getRequestDispatcher("/jsp/login.jspx");
             rd.forward(request, response);
 			return;
 		}
