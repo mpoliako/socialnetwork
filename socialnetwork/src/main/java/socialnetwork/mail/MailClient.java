@@ -36,8 +36,7 @@ public class MailClient {
         if(Config.getInstance().getProperty(Config.SMTP_USER_NAME) != null && Config.getInstance().getProperty(Config.SMTP_PASSWORD) != null) {
         	mailUserName = Config.getInstance().getProperty(Config.SMTP_USER_NAME);
         	mailPassword = Config.getInstance().getProperty(Config.SMTP_PASSWORD);
-        }
-        
+        }        
         
     }
     
