@@ -25,6 +25,17 @@ public class Config {
     public static final String JDBC_MAX_POOL_SIZE = "jdbc.maxPoolSize";
     public static final String JDBC_MIN_POOL_SIZE = "jdbc.minPoolSize";
     public static final String JDBC_MAX_STATEMENTS = "jdbc.maxStatements";
+    public static final String SMTP_HOST = "mail.smtps.host";
+    public static final String SMTP_SOCKET_FACTORY = "mail.smtp.socketFactory.class";
+    public static final String SMTP_SOCKET_FACTORY_FALLBACK = "mail.smtp.socketFactory.fallback";
+    public static final String SMTP_PORT = "mail.smtp.port";
+    public static final String SMTP_SOCKET_FACTORY_PORT = "mail.smtp.socketFactory.port";
+    public static final String SMTPS_AUTH = "mail.smtps.auth";
+    public static final String SMTPS_QUITWAIT = "mail.smtps.quitwait";
+    public static final String SMTPS_TRANSPORT = "mail.smtps.transport";
+    public static final String SMTP_ENCODING = "smtp.encoding";
+    public static final String SMTP_USER_NAME = "smtp.username";
+    public static final String SMTP_PASSWORD = "smtp.password";
 
     public static Config getInstance() {
         if (instance == null) {

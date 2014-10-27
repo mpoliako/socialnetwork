@@ -13,7 +13,7 @@ public class MailClientTest {
 	@Test
 	public void testSendMail() {
 		try {
-			MailClient.send("mishapolyakovtest@gmail.com", "Nk9752jklsddg_", "mishapolyakov.ts73@gmail.com", "df", "sdafasdfds");
+			MailClient.getInstance().send("mishapolyakov.ts73@gmail.com", "df", "sdafasdfds");
 		} catch (AddressException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
