@@ -24,7 +24,8 @@ public class LoginCommand implements ICommand {
 		String login = request.getParameter(LOGIN);
 		String password = request.getParameter(PASSWORD);	
 		
-		User user = DaoUtils.getDaoFactory().getUserDao().findUserByNameAndPassword(login, password);
+		//User user = DaoUtils.getDaoFactory().getUserDao().findUserByNameAndPassword(login, password);
+		User user = DaoUtils.getDaoFactory().getMockDao().findUserByNameAndPassword(login, password);
 
 		if (user != null) {
 			request.getSession().setAttribute("user", user);

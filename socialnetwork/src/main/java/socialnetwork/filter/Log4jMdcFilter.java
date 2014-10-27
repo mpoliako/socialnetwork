@@ -12,10 +12,6 @@ import javax.servlet.annotation.WebFilter;
 
 import org.apache.log4j.MDC;
 
-/**
- * Servlet filter to insert all muttable data to logger.
- * @author Max Radchenko (JBS - http://jbs.com.ua)
- */
 @WebFilter(filterName  = "log4jMdcFilter", urlPatterns = {"/*"})
 public class Log4jMdcFilter implements Filter {
 
