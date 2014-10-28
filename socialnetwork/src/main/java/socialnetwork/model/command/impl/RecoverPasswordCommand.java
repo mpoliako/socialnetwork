@@ -34,7 +34,7 @@ public class RecoverPasswordCommand implements ICommand {
 			return Config.getInstance().getProperty(Config.LOGIN);
 		}
 
-		User user = DaoUtils.getDaoFactory().getUserDao()
+		final User user = DaoUtils.getDaoFactory().getUserDao()
 				.findUserByEmail(email);
 		
 		
@@ -43,15 +43,22 @@ public class RecoverPasswordCommand implements ICommand {
 			return Config.getInstance().getProperty(Config.LOGIN);
 		}
 		
-		String message = Message.getInstance().getProperty(Message.RECOVER_PASSWORD).replaceAll("?1", user.getDisplayName()).replaceAll("?2", user.getPasswordHash());
+		final String message = Message.getInstance().getProperty(Message.RECOVER_PASSWORD).replaceAll(":1", user.getDisplayName()).replaceAll(":2", user.getPasswordHash());
 		
-		try {
-			MailClient.getInstance().send(user.getEmail(), Message.getInstance().getProperty(Message.RECOVER_PASSWORD_TITLE), message);
-			LOG.info("Mail successfully sent to email "+ user.getEmail() +". Return to login page");
-		} catch (MessagingException e) {
-			LOG.error(e.getMessage(), e);
-		}		
+		new Thread(new Runnable(){
+
+			@Override
+			public void run() {
+				try {
+					MailClient.getInstance().send(user.getEmail(), Message.getInstance().getProperty(Message.RECOVER_PASSWORD_TITLE), message);
+					LOG.info("Mail successfully sent to email "+ user.getEmail());
+				} catch (MessagingException e) {
+					LOG.error(e.getMessage(), e);
+				}	
+			}}).start();
 		
+			
+		LOG.info("Return to login page");
 		return Config.getInstance().getProperty(Config.LOGIN);
 
 	}

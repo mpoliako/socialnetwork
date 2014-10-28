@@ -30,6 +30,7 @@ $(document).ready(function () {
 
     // handle nav selection
     function selectNav() {
+    	console.log(this);
         $(this)
             .parents('ul:first')
                 .find('a')
@@ -38,8 +39,13 @@ $(document).ready(function () {
             .end()
             .addClass('selected');
     }
-
-    $('#slider .navigation').find('a').click(selectNav);
+        
+   console.log($('#scrollContainer').find('.panel').attr("id"));
+   console.log($('#slider .navigation').find('a[href*=".'+$('#scrollContainer').find('.panel').attr("id")+'."]').attr("href"));
+   
+   $('#slider .navigation').find('a[href*=".'+$('#scrollContainer').find('.panel').attr("id")+'."]').click(selectNav);
+   
+   //$('#slider .navigation').find('a').click(selectNav);
 
     // go find the navigation link that has this target and select the nav
     function trigger(data) {
@@ -92,7 +98,7 @@ $(document).ready(function () {
     // apply serialScroll to the  - we chose this plugin because it 
     // supports// the indexed next and previous scroll along with hooking 
     // in to our navigation.
-    $('#slider').serialScroll(scrollOptions);
+    //$('#slider').serialScroll(scrollOptions);
 
     // now apply localScroll to hook any other arbitrary links to trigger 
     // the effect
