@@ -19,6 +19,8 @@ import socialnetwork.utils.Message;
 
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
 public class Controller extends TilesDispatchServlet {
+	
+	private static final String RETURN_PAGE = "returnPage";
 
     /**
 	 * 
@@ -56,7 +58,7 @@ public class Controller extends TilesDispatchServlet {
         }
         
         if(page.endsWith(".tiles")) {
-        	request.setAttribute("page", page);
+        	request.setAttribute(RETURN_PAGE, page);
         	super.doGet(request, response);
         } else {
         	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
@@ -106,7 +108,7 @@ public class Controller extends TilesDispatchServlet {
     @Override
     protected String getDefinitionName(HttpServletRequest request) {
     	
-    	String path = (String) request.getAttribute("page");
+    	String path = (String) request.getAttribute(RETURN_PAGE);
     	int start = path.startsWith("/") ? 1 : 0;
     	int end = path.indexOf(".tiles");
     	   

@@ -64,17 +64,17 @@
     </div> <!-- end of sidebar -->
 
 	<div id="templatemo_main">
-    	<ul id="social_box">
+    <!--  	<ul id="social_box">
             <li><a href="/socialnetwork/Controller"><img src="${pageContext.request.contextPath}/static/images/facebook.png" alt="facebook" /></a></li>
             <li><a href="/socialnetwork/Controller"><img src="${pageContext.request.contextPath}/static/images/twitter.png" alt="twitter" /></a></li>
             <li><a href="/socialnetwork/Controller"><img src="${pageContext.request.contextPath}/static/images/linkedin.png" alt="linkin" /></a></li>
             <li><a href="/socialnetwork/Controller"><img src="${pageContext.request.contextPath}/static/images/technorati.png" alt="technorati" /></a></li>
             <li><a href="/socialnetwork/Controller"><img src="${pageContext.request.contextPath}/static/images/myspace.png" alt="myspace" /></a></li>                
-        </ul>
+        </ul>-->
         
         <div id="content">
         
-        <!-- scroll -->
+        
         <div class="scroll">
                 <div class="scrollContainer" id = "scrollContainer">
         			<tiles:insertAttribute name="body"/>
@@ -86,7 +86,7 @@
            
         </div>
     
-    </div> 
+    </div>
 </div>
 </div>
 </body>
