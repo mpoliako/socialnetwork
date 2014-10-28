@@ -3,11 +3,23 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-  <definition name="socialnetwork.home" template="/WEB-INF/tiles/main.jsp">
+  <definition name="home" template="/WEB-INF/tiles/main.jsp">
     <put-attribute name="body" value="/WEB-INF/tiles/home.jsp" />
   </definition>
   
-    <definition name="socialnetwork.friends" template="/WEB-INF/tiles/main.jsp">
+    <definition name="friends" template="/WEB-INF/tiles/main.jsp">
     <put-attribute name="body" value="/WEB-INF/tiles/friends.jsp" />
+  </definition>
+  
+  <definition name="messages" template="/WEB-INF/tiles/main.jsp">
+    <put-attribute name="body" value="/WEB-INF/tiles/messages.jsp" />
+  </definition>
+  
+    <definition name="groups" template="/WEB-INF/tiles/main.jsp">
+    <put-attribute name="body" value="/WEB-INF/tiles/groups.jsp" />
+  </definition>
+  
+      <definition name="support" template="/WEB-INF/tiles/main.jsp">
+    <put-attribute name="body" value="/WEB-INF/tiles/support.jsp" />
   </definition>
 </tiles-definitions>

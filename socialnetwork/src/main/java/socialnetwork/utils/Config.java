@@ -10,6 +10,11 @@ public class Config {
     public static final String DRIVER = "DRIVER";
     public static final String URL = "URL";
     public static final String MAIN = "MAIN";
+    public static final String HOME = "HOME";
+    public static final String FRIENDS = "FRIENDS";
+    public static final String MESSAGES = "MESSAGES";
+    public static final String GROUPS = "GROUPS";
+    public static final String SUPPORT = "SUPPORT";
     public static final String ERROR = "ERROR";
     public static final String LOGIN = "LOGIN";
     public static final String JDBC_URL = "jdbc.url";
