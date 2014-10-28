@@ -13,7 +13,7 @@ public class HomeCommand implements ICommand {
 
 	@Override
 	public String execute(HttpServletRequest request,
-			HttpServletResponse responce) throws ServletException, IOException {
+			HttpServletResponse responce) throws ServletException, IOException {	
 		return Config.getInstance().getProperty(Config.HOME);
 	}
 

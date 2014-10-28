@@ -12,7 +12,7 @@ public class MockDaoImpl implements MockDao {
 		
 		if (user.equals("root") && password.equals("root")) {
 			return new User(1l, "root", "root@test.com", "Misha", "male",
-					"Hello All", "Poliakov", "root", "/photo/123", new Date(),
+					"Hello, my name is Misha", "Poliakov", "root", "/users/root/icon/icon.jpg", new Date(),
 					"admin");
 		}
 		
