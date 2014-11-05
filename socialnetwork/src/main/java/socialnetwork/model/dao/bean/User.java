@@ -3,19 +3,41 @@ package socialnetwork.model.dao.bean;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@NamedQuery(name = "findMaleUsers", query = "SELECT u FROM User u WHERE u.gender ='male'")
+
+@Table(name="USERS")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Column(name="ID")
+	@Id
 	private Long id;
+	@Column(name="DISPLAY_NAME")
 	private String displayName;
+	@Column(name="EMAIL")
 	private String email;
+	@Column(name="FIRST_NAME")
 	private String firstName;
+	@Column(name="GENDER")
 	private String gender;
+	@Column(name="INFORMATION")
 	private String information;
+	@Column(name="LAST_NAME")
 	private String lastName;
+	@Column(name="PASSWORD_HASH")
 	private String passwordHash;
+	@Column(name="PHOTO_URL")
 	private String photoUrl;
+	@Column(name="REGISTER_DATE")
 	private Date registerDate;
+	@Column(name="ROLE")
 	private String role;
 
 	public User() {
