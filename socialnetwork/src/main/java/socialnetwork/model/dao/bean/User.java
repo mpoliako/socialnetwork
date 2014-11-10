@@ -15,13 +15,16 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "User.findUserByNameAndPassword", query = "SELECT u FROM User u WHERE u.displayName = :login and u.passwordHash = :password"),
-		@NamedQuery(name = "findMaleUsers", query = "SELECT u FROM User u WHERE u.gender ='male'") })
+		@NamedQuery(name = "findMaleUsers", query = "SELECT u FROM User u WHERE u.gender ='male'"),
+		@NamedQuery(name = "User.findUserByEmail", query = "SELECT u FROM User u WHERE u.email = :email")})
 @Table(name = "USERS")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String FIND_USER_BY_NAME_AND_PASSWORD = "User.findUserByNameAndPassword";
+	public static final String FIND_USER_BY_EMAIL = "User.findUserByEmail";
 	public static final String USER_LOGIN = "login";
 	public static final String USER_PASSWORD = "password";
+	public static final String USER_EMAIL = "email";
 
 	@Column(name = "ID")
 	@Id

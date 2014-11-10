@@ -3,6 +3,9 @@ package socialnetwork.model.command.impl;
 import java.io.IOException;
 
 import javax.mail.MessagingException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,14 +15,15 @@ import org.apache.log4j.Logger;
 import socialnetwork.mail.MailClient;
 import socialnetwork.model.command.ICommand;
 import socialnetwork.model.dao.bean.User;
+import socialnetwork.model.facade.UserFacadeLocal;
 import socialnetwork.utils.Config;
-import socialnetwork.utils.DaoUtils;
 import socialnetwork.utils.Message;
 
 public class RecoverPasswordCommand implements ICommand {
 
 	private final static Logger LOG = Logger.getLogger(RecoverPasswordCommand.class);
 	private static final String EMAIL = "email";
+	private UserFacadeLocal userEJB = lookupUsersFacadeLocal();
 
 	@Override
 	public String execute(HttpServletRequest request,
@@ -34,8 +38,7 @@ public class RecoverPasswordCommand implements ICommand {
 			return Config.getInstance().getProperty(Config.LOGIN);
 		}
 
-		final User user = DaoUtils.getDaoFactory().getUserDao()
-				.findUserByEmail(email);
+		final User user = userEJB.findUserByEmail(email);
 		
 		
 		if (user == null) {
@@ -62,5 +65,15 @@ public class RecoverPasswordCommand implements ICommand {
 		return Config.getInstance().getProperty(Config.LOGIN);
 
 	}
+	
+	 private UserFacadeLocal lookupUsersFacadeLocal() {
+	        try {
+	            Context c =new InitialContext();
+	            return (UserFacadeLocal)c.lookup("java:module/UserFacade!socialnetwork.model.facade.UserFacadeLocal");
+	        } catch (NamingException ex) {
+	        	LOG.error(ex.getMessage(), ex);
+	            throw new RuntimeException(ex);
+	        }
+	    }
 
 }
