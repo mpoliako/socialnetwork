@@ -72,6 +72,12 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>4.0.1.Final</version>
         </dependency>
+        <dependency>
+			<groupId>org.glassfish.main.extras</groupId>
+			<artifactId>glassfish-embedded-all</artifactId>
+			<version>4.0-b72</version>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 	<build>

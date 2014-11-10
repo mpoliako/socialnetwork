@@ -14,7 +14,7 @@ import socialnetwork.model.dao.bean.User;
 
 public class JpaTest {
 	private static EntityManagerFactory emf = Persistence
-			.createEntityManagerFactory("socialNetwork");
+			.createEntityManagerFactory("devSocialNetwork");
 	private EntityManager em;
 
 	@Before
